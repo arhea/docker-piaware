@@ -1,7 +1,6 @@
 version: '3.2'
 services:
   dump1090:
-    image: "loungefly/raspbian-dump1090"
     build: ./dump1090
     container_name: dump1090
     privileged: true
@@ -16,7 +15,6 @@ services:
       - DUMP_LAT=49.555
       - DUMP_LON=-124.555
   piaware:
-    image: "loungefly/raspbian-flightaware"
     container_name: piaware
     build: ./flightaware
     volumes:
@@ -24,11 +22,7 @@ services:
     environment:
       - PIAWARE_HOST=dump1090
       - PIAWARE_PORT=30005
-      - PIAWARE_USER=username
-      - PIAWARE_PASSWORD=password
-      - PIAWARE_FEEDER_ID=
   flightradar:
-    image: "loungefly/raspbian-flightradar24"
     container_name: flightradar24
     build: ./flightradar
     ports:
@@ -36,5 +30,4 @@ services:
     environment:
       - DUMP1090_HOST=dump1090
       - DUMP1090_PORT=30005
-      - FR24_KEY=
     restart: always
