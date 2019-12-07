@@ -14,10 +14,10 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...
-      - docker build -t arhea/flightaware-base:stretch
+      - docker image build -t arhea/flightaware-base:$IMAGE_TAGE ./flightaware
 
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
-      - docker push arhea/flightaware-base:stretch
+      - docker image push arhea/flightaware-base:$IMAGE_TAGE
