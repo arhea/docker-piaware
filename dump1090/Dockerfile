@@ -1,29 +1,10 @@
 FROM raspbian/stretch:latest
 
-WORKDIR /root
+RUN apt-get update -y && apt-get upgrade -y
 
-RUN apt-get update -y \
-    && apt-get upgrade -y \
-    && apt-get install --no-install-recommends -y \
-      git-core \
-      git \
-      cmake \
-      libusb-1.0.0-dev \
-      build-essential \
-      pkg-config
-
-RUN git clone git://git.osmocom.org/rtl-sdr.git \
-    && mkdir -p ./rtl-sdr/build \
-    && cd /root/rtl-sdr/build \
-    && cmake ../ -DINSTALL_UDEV_RULES=ON \
-    && make -j 4 \
-    && make install \
-    && ldconfig \
-    && cp /root/rtl-sdr/rtl-sdr.rules /etc/udev/rules.d/
-
-RUN git clone https://github.com/malcolmrobb/dump1090 \
-    && cd dump1090 \
-    && make -j 4
+RUN wget http://flightaware.com/adsb/piaware/files/packages/pool/piaware/p/piaware-support/piaware-repository_3.7.2_all.deb \
+    && apt-get update -y \
+    && apt-get install -y dump1090-fa
 
 WORKDIR /root/dump1090
 

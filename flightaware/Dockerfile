@@ -7,14 +7,14 @@ RUN apt-get update -y \
 RUN wget http://flightaware.com/adsb/piaware/files/packages/pool/piaware/p/piaware-support/piaware-repository_3.7.2_all.deb \
   && dpkg -i piaware-repository_3.7.2_all.deb \
   && apt-get update \
-  && apt-get install -qy piaware dump1090-fa \
+  && apt-get install -qy piaware \
   && sudo piaware-config allow-auto-updates no \
   && sudo piaware-config allow-manual-updates no
 
 COPY ./start.sh start.sh
 RUN chmod +x start.sh
 
-ENV PIAWARE_HOST="" PIAWARE_PORT="" PIAWARE_USER="" PIAWARE_PASSWORD="" PIAWARE_FEEDER_ID=""
+ENV PIAWARE_HOST="" PIAWARE_PORT="" PIAWARE_FEEDER_ID=""
 
 EXPOSE 8080
 EXPOSE 30003
