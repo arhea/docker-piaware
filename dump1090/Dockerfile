@@ -11,12 +11,14 @@ COPY ./start.sh start.sh
 RUN chmod +x start.sh
 
 # Update your lat/lon values.
-ENV DUMP_HTTP_PORT="" DUMP_SBS_PORT="" DUMP_LAT="" DUMP_LON=""
+ENV PIAWARE_LAT="" PIAWARE_LON=""
 
 # web overview
 EXPOSE 8080
 # ports for FlightAware etc
+EXPOSE 30002
 EXPOSE 30003
+EXPOSE 30004
 EXPOSE 30005
 EXPOSE 30104
 
