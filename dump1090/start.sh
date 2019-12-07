@@ -14,6 +14,6 @@
                       --net-ro-port 30002 \
                       --net-sbs-port 30003 \
                       --net-bi-port 30004,30104 \
-                      --net-bo-port 30005
+                      --net-bo-port 30005 \
                       --lat $PIAWARE_LAT \
                       --lon $PIAWARE_LON
