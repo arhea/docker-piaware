@@ -1,15 +1,8 @@
-FROM raspbian/stretch:latest
+FROM arhea/flightaware-base:latest
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN apt-get update -y \
-    && apt-get upgrade -y \
-    && apt-get install -y perl libreadline7 libreadline-dev
-
-RUN wget http://flightaware.com/adsb/piaware/files/packages/pool/piaware/p/piaware-support/piaware-repository_3.7.2_all.deb \
-  && dpkg -i piaware-repository_3.7.2_all.deb \
-  && apt-get update -y \
-  && apt-get install -y dump1090-fa
+RUN apt-get install -y perl libreadline7 libreadline-dev dump1090-fa
 
 COPY ./start.sh start.sh
 RUN chmod +x start.sh
