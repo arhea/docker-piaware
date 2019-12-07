@@ -9,7 +9,6 @@ RUN apt-get update -y \
 RUN wget http://flightaware.com/adsb/piaware/files/packages/pool/piaware/p/piaware-support/piaware-repository_3.7.2_all.deb \
   && dpkg -i piaware-repository_3.7.2_all.deb \
   && apt-get update -y \
-  && echo "#!/bin/sh\nexit 0" > /usr/sbin/policy-rc.d \
   && apt-get install -y dump1090-fa
 
 COPY ./start.sh start.sh
