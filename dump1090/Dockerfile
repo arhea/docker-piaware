@@ -3,8 +3,9 @@ FROM raspbian/stretch:latest
 RUN apt-get update -y && apt-get upgrade -y
 
 RUN wget http://flightaware.com/adsb/piaware/files/packages/pool/piaware/p/piaware-support/piaware-repository_3.7.2_all.deb \
-    && apt-get update -y \
-    && apt-get install -y dump1090-fa
+  && dpkg -i piaware-repository_3.7.2_all.deb \
+  && apt-get update \
+  && apt-get install -qy dump1090-fa
 
 WORKDIR /root/dump1090
 
@@ -22,4 +23,4 @@ EXPOSE 30005
 EXPOSE 30104
 
 ENTRYPOINT []
-CMD ["/root/dump1090/startdumping.sh"]
+CMD ["/root/dump1090/start.sh"]
