@@ -2,7 +2,7 @@ FROM raspbian/stretch:latest
 
 RUN apt-get update -y \
     && apt-get upgrade -y \
-    && apt-get install -y iputils-ping \
+    && apt-get install -y iputils-ping dirmngr \
     && gpg --keyserver pgp.mit.edu --recv-keys 40C430F5 \
     && gpg --armor --export 40C430F5 | apt-key add -
 
