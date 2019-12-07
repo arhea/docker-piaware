@@ -1,8 +1,11 @@
 FROM raspbian/stretch:latest
 
-RUN apt-get update -y && apt-get upgrade -y
+RUN export DEBIAN_FRONTEND=noninteractive \
+    && apt-get update \
+    && apt-get upgrade
 
-RUN wget http://flightaware.com/adsb/piaware/files/packages/pool/piaware/p/piaware-support/piaware-repository_3.7.2_all.deb \
+RUN export DEBIAN_FRONTEND=noninteractive \
+  && wget http://flightaware.com/adsb/piaware/files/packages/pool/piaware/p/piaware-support/piaware-repository_3.7.2_all.deb \
   && dpkg -i piaware-repository_3.7.2_all.deb \
   && apt-get update \
   && apt-get install -qy dump1090-fa

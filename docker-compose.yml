@@ -25,4 +25,5 @@ services:
     environment:
       - PIAWARE_HOST=dump1090
       - PIAWARE_PORT=30005
+      - PIAWARE_MLAT_PORT=30104
       - PIAWARE_FEEDER_ID=db694712-8509-4a4d-98c7-891c180552db
