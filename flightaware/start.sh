@@ -2,7 +2,7 @@
 
 /usr/bin/piaware-config mlat-results yes
 /usr/bin/piaware-config receiver-type other
-/usr/bin/piaware-config use-gpsd other
+/usr/bin/piaware-config use-gpsd no
 
 [[ ! -z ${PIAWARE_HOST} ]]             &&  /usr/bin/piaware-config receiver-host ${PIAWARE_HOST} || PIAWARE_HOST="dump1090"
 [[ ! -z ${PIAWARE_PORT} ]]             &&  /usr/bin/piaware-config receiver-port ${PIAWARE_PORT} || PIAWARE_PORT="30005"
