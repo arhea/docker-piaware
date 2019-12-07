@@ -1,14 +1,14 @@
 FROM raspbian/stretch:latest
 
-RUN export DEBIAN_FRONTEND=noninteractive \
-    && apt-get update \
-    && apt-get upgrade
+ENV DEBIAN_FRONTEND=noninteractive
 
-RUN export DEBIAN_FRONTEND=noninteractive \
-  && wget http://flightaware.com/adsb/piaware/files/packages/pool/piaware/p/piaware-support/piaware-repository_3.7.2_all.deb \
+RUN apt-get update -y \
+    && apt-get upgrade -y
+
+RUN wget http://flightaware.com/adsb/piaware/files/packages/pool/piaware/p/piaware-support/piaware-repository_3.7.2_all.deb \
   && dpkg -i piaware-repository_3.7.2_all.deb \
-  && apt-get update \
-  && apt-get install -qy piaware \
+  && apt-get update -y \
+  && apt-get install -y piaware \
   && sudo piaware-config allow-auto-updates no \
   && sudo piaware-config allow-manual-updates no
 
