@@ -14,10 +14,10 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...
-      - docker build -t arhea/flightaware-piaware:stretch
+      - docker build -t arhea/flightaware-piaware:$IMAGE_TAG ./piaware
 
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
-      - docker push arhea/flightaware-piaware:stretch
+      - docker push arhea/flightaware-piaware:$IMAGE_TAG

@@ -1,4 +1,4 @@
-FROM raspbian/stretch:latest
+FROM arhea/flightaware-base:stretch
 
 ENV DEBIAN_FRONTEND=noninteractive
 

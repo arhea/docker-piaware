@@ -14,10 +14,10 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...
-      - docker build -t arhea/flightaware-dump1090:stretch
+      - docker build -t arhea/flightaware-dump1090:$IMAGE_TAG ./dump1090
 
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
-      - docker push arhea/flightaware-dump1090:stretch
+      - docker push arhea/flightaware-dump1090:$IMAGE_TAG
