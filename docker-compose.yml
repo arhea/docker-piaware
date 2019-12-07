@@ -33,4 +33,4 @@ services:
     environment:
       - DUMP1090_HOST=dump1090
       - DUMP1090_PORT=30005
-      - FR24_KEY=1ad3aae43eea8f75
+      - FR24_KEY=408fff66a26c3f69
