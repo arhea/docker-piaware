@@ -4,7 +4,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update -y \
     && apt-get upgrade -y \
-    && apt-get install -y perl lib32readline7 lib32readline-dev
+    && apt-get install -y perl libreadline7 libreadline-dev
 
 RUN wget http://flightaware.com/adsb/piaware/files/packages/pool/piaware/p/piaware-support/piaware-repository_3.7.2_all.deb \
   && dpkg -i piaware-repository_3.7.2_all.deb \
