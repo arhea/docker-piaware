@@ -21,8 +21,6 @@ services:
     container_name: piaware
     restart: always
     build: ./flightaware
-    volumes:
-      - ./flightaware/piaware.conf:/etc/piaware.conf
     environment:
       - PIAWARE_HOST=dump1090
       - PIAWARE_PORT=30005
