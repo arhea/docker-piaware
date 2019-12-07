@@ -1,8 +1,6 @@
 #!/bin/bash
 
-/usr/bin/dump1090-fa --device-index 0 \
-                      --interactive \
-                      --gain -10 \
+/usr/bin/dump1090-fa --gain -10 \
                       --ppm 0 \
                       --max-range 360 \
                       --net \
