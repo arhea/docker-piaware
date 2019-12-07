@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -ex
 
 /usr/bin/piaware-config mlat-results yes
 /usr/bin/piaware-config receiver-type other

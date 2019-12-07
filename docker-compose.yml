@@ -11,6 +11,7 @@ services:
      - 30003
      - 30004
      - 30005
+     - 30104
     environment:
       - PIAWARE_LAT=38.923440
       - PIAWARE_LON=-77.325390
