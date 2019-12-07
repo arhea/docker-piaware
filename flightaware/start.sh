@@ -1,11 +1,16 @@
 #!/bin/bash -ex
 
+PIAWARE_HOST=${PIAWARE_HOST:-dump1090}
+PIAWARE_PORT=${PIAWARE_PORT:-30005}
+PIAWARE_MLAT_PORT=${PIAWARE_MLAT_PORT:-30104}
+
 /usr/bin/piaware-config mlat-results yes
 /usr/bin/piaware-config receiver-type other
 /usr/bin/piaware-config use-gpsd no
+/usr/bin/piaware-config mlat-results-format "beast,connect,${PIAWARE_HOST}:${PIAWARE_MLAT_PORT}"
+/usr/bin/piaware-config receiver-host ${PIAWARE_HOST}
+/usr/bin/piaware-config receiver-port ${PIAWARE_PORT}
 
-[[ ! -z ${PIAWARE_HOST} ]]       &&  /usr/bin/piaware-config receiver-host ${PIAWARE_HOST} || PIAWARE_HOST="dump1090"
-[[ ! -z ${PIAWARE_PORT} ]]       &&  /usr/bin/piaware-config receiver-port ${PIAWARE_PORT} || PIAWARE_PORT="30005"
 [[ ! -z ${PIAWARE_FEEDER_ID} ]]  && /usr/bin/piaware-config feeder-id ${PIAWARE_FEEDER_ID}
 
 # Recommend adding this to the config

@@ -14,7 +14,7 @@ RUN wget http://flightaware.com/adsb/piaware/files/packages/pool/piaware/p/piawa
 COPY ./start.sh start.sh
 RUN chmod +x start.sh
 
-ENV PIAWARE_HOST="" PIAWARE_PORT="" PIAWARE_FEEDER_ID=""
+ENV PIAWARE_HOST="" PIAWARE_PORT="" PIAWARE_FEEDER_ID="" PIAWARE_MLAT_PORT=""
 
 EXPOSE 8080
 EXPOSE 30003
