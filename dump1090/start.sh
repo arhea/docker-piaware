@@ -6,7 +6,6 @@
                       --ppm 0 \
                       --max-range 360 \
                       --net \
-                      --net-bind-address \
                       --net-heartbeat 60 \
                       --net-ro-size 1000 \
                       --net-ro-interval 1 \
