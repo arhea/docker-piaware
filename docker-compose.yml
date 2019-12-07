@@ -2,6 +2,7 @@ version: '3.2'
 services:
   dump1090:
     build: ./dump1090
+    restart: always
     container_name: dump1090
     privileged: true
     ports:
@@ -12,10 +13,13 @@ services:
     environment:
       - DUMP_HTTP_PORT=8080
       - DUMP_SBS_PORT=30003
-      - DUMP_LAT=49.555
-      - DUMP_LON=-124.555
+      - DUMP_LAT=38.923440
+      - DUMP_LON=-77.325390
+    devices:
+      - /dev/bus/usb:/dev/bus/usb
   piaware:
     container_name: piaware
+    restart: always
     build: ./flightaware
     volumes:
       - ./flightaware/piaware.conf:/etc/piaware.conf
@@ -24,10 +28,10 @@ services:
       - PIAWARE_PORT=30005
   flightradar:
     container_name: flightradar24
+    restart: always
     build: ./flightradar
     ports:
      - "8754:8754"
     environment:
       - DUMP1090_HOST=dump1090
       - DUMP1090_PORT=30005
-    restart: always
