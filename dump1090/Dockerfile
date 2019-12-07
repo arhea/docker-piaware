@@ -7,10 +7,8 @@ RUN wget http://flightaware.com/adsb/piaware/files/packages/pool/piaware/p/piawa
   && apt-get update \
   && apt-get install -qy dump1090-fa
 
-WORKDIR /root/dump1090
-
-COPY ./startdumping.sh startdumping.sh
-RUN chmod +x startdumping.sh
+COPY ./start.sh start.sh
+RUN chmod +x start.sh
 
 # Update your lat/lon values.
 ENV DUMP_HTTP_PORT="" DUMP_SBS_PORT="" DUMP_LAT="" DUMP_LON=""
@@ -23,4 +21,4 @@ EXPOSE 30005
 EXPOSE 30104
 
 ENTRYPOINT []
-CMD ["/root/dump1090/start.sh"]
+CMD ["/start.sh"]
