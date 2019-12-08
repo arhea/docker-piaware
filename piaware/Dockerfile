@@ -1,4 +1,4 @@
-FROM arhea/flightaware-base:stretch
+FROM arhea/flightaware-base
 
 ENV DEBIAN_FRONTEND=noninteractive
 

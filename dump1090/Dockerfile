@@ -1,4 +1,4 @@
-FROM arhea/flightaware-base:stretch
+FROM arhea/flightaware-base
 
 COPY ./build.sh /usr/flightaware/build.sh
 RUN /usr/flightaware/build.sh
