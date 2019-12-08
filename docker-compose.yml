@@ -1,13 +1,21 @@
 version: '3.2'
 services:
 
+  nginx:
+    build: ./nginx
+    restart: always
+    container_name: nginx
+    ports:
+      - 8080:8080
+    volumes:
+      - data-volume:/data
+
   dump1090:
     build: ./dump1090
     restart: always
     container_name: dump1090
     privileged: true
     ports:
-     - 8080:8080
      - 30003
      - 30004
      - 30005
@@ -17,9 +25,11 @@ services:
       - PIAWARE_LON=-77.325390
     devices:
       - /dev/bus/usb:/dev/bus/usb
+    volumes:
+      - data-volume:/run/dump1090-fa/
 
   piaware:
-    build: ./flightaware
+    build: ./piaware
     container_name: piaware
     restart: always
     environment:
@@ -27,3 +37,6 @@ services:
       - PIAWARE_PORT=30005
       - PIAWARE_MLAT_PORT=30104
       - PIAWARE_FEEDER_ID=db694712-8509-4a4d-98c7-891c180552db
+
+volumes:
+  data-volume: {}
