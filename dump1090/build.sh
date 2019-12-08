@@ -20,7 +20,7 @@ cd dump1090
 dpkg-buildpackage -b
 
 if [ "$arch" == 'armv*' ]; then
-  dpkg -i ../dump1090-fa_3.7.2_arm.deb
+  dpkg -i ../dump1090-fa_3.7.2_arm64.deb
 else
   dpkg -i ../dump1090-fa_3.7.2_amd64.deb
 fi

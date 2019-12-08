@@ -25,7 +25,7 @@ dpkg-buildpackage -b
 
 # configure the package
 if [ "$arch" == 'armv*' ]; then
-  dpkg -i ../piaware_3.7.2_arm.deb
+  dpkg -i ../piaware_3.7.2_arm64.deb
 else
   dpkg -i ../piaware_3.7.2_amd64.deb
 fi
