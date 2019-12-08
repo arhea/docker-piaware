@@ -1,23 +1,14 @@
 FROM arhea/flightaware-base:stretch
 
-ENV DEBIAN_FRONTEND=noninteractive
+COPY ./build.sh /usr/flightaware/build.sh
+RUN /usr/flightaware/build.sh
 
-RUN apt-get install -y perl libreadline7 libreadline-dev dump1090-fa
-
-COPY ./start.sh start.sh
-RUN chmod +x start.sh
+COPY ./start.sh /usr/flightaware/start.sh
 
 # Update your lat/lon values.
 ENV PIAWARE_LAT="" PIAWARE_LON=""
 
-# web overview
-EXPOSE 8080
-# ports for FlightAware etc
-EXPOSE 30002
-EXPOSE 30003
-EXPOSE 30004
-EXPOSE 30005
-EXPOSE 30104
+EXPOSE 30002 30003 30004 30005 30104
 
 ENTRYPOINT []
-CMD ["/start.sh"]
+CMD ["/usr/flightaware/start.sh"]
